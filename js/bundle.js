@@ -3427,7 +3427,7 @@ PlusMinus(); ///////////////////////////////////////
 // Slider
 
 $(document).ready(function () {
-  $('.pgwSlider').pgwSlider({
+  var pgwSlider = $('.pgwSlider').pgwSlider({
     maxHeight: 400,
     displayControls: true,
     touchControls: true,
@@ -3437,10 +3437,24 @@ $(document).ready(function () {
     // adaptiveHeight: true,
     verticalCentering: true,
     transitionDuration: 1000,
-    intervalDuration: 5000
+    intervalDuration: 4000
   });
+
+  function sideNav() {
+    $(".side-nav__item").on({
+      mouseenter: function mouseenter() {
+        pgwSlider.stopSlide(); //stuff to do on mouse enter
+      },
+      mouseleave: function mouseleave() {
+        pgwSlider.startSlide(); //stuff to do on mouse leave
+      }
+    });
+  }
+
+  sideNav();
 });
-if (!window.jQuery) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>'); //////////////////////////////////////
+if (!window.jQuery) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>'); //////////////////////////
+//////////////////////////////////////
 // Feedback
 
 function feedback() {
@@ -3512,7 +3526,7 @@ jQuery(document).ready(function ($) {
     function changeTextOnBtnFirstTime() {
       btn.innerHTML = "Добавлено";
       btn.style.transform = "translateY(0px)";
-      btn.style.background = "rgba(49, 47, 47, 1)";
+      btn.style.background = "rgba(182, 67, 5, 1)";
       btn.style.boxShadow = "0 .5rem 1rem rgba(0, 0, 0, 0.5)";
       btn.classList.add("added");
     }
@@ -3520,7 +3534,7 @@ jQuery(document).ready(function ($) {
     function changeTextOnBtnSecond() {
       btn.innerHTML = "В корзину";
       btn.style.transform = "translateY(-3px)";
-      btn.style.background = "rgba(49, 47, 47, 0.8)";
+      btn.style.background = "rgba(182, 67, 5, .8)";
       btn.style.boxShadow = "0 1rem 2rem rgba(0, 0, 0, 0.5)";
       btn.classList.remove("added");
     }
